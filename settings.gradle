@@ -1,2 +1,5 @@
 rootProject.name = 'security-core'
+include 'security-browser'
+include 'security-demo'
+
 

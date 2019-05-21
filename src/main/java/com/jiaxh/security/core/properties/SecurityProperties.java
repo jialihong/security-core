@@ -1,13 +1,12 @@
 package com.jiaxh.security.core.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+
 
 /**
  * @Auther: jiaxh
  * @Date: 2019/5/7 15:26
  */
-@Component
 @ConfigurationProperties(prefix = "jiaxh.security")
 public class SecurityProperties {
     /**
