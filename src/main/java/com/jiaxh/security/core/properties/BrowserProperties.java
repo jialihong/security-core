@@ -10,6 +10,19 @@ public class BrowserProperties {
 
     private LoginType loginType = LoginType.JSON;
 
+    /**
+     * 设置记住我的过期时间
+     */
+    private int rememberMeSeconds = 3600;
+
+    public int getRememberMeSeconds() {
+        return rememberMeSeconds;
+    }
+
+    public void setRememberMeSeconds(int rememberMeSeconds) {
+        this.rememberMeSeconds = rememberMeSeconds;
+    }
+
     public String getLoginPage() {
         return loginPage;
     }

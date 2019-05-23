@@ -23,6 +23,7 @@ import java.util.Set;
 
 /**
  * 自定义的验证码校验过滤器
+ * extends OncePerRequestFilter 保证自定义的过滤器只会被调用一次
  * 实现InitializingBean，用于在其他参数都封装完毕后初始化urls的值
  */
 public class ValidateCodeFilter extends OncePerRequestFilter implements InitializingBean {
