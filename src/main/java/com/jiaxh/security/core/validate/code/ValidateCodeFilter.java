@@ -41,6 +41,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 
     @Override
     public void afterPropertiesSet() throws ServletException {
+        //先调父类的方法
         super.afterPropertiesSet();
         //将配置文件里的urls以逗号分隔
         final String[] configUrls = StringUtils.splitByWholeSeparatorPreserveAllTokens(securityProperties.getCode().getImage().getUrl(), ",");
