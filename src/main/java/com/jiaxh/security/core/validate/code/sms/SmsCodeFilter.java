@@ -1,8 +1,6 @@
 package com.jiaxh.security.core.validate.code.sms;
 
-import com.jiaxh.security.core.controller.ValidateCodeController;
 import com.jiaxh.security.core.properties.SecurityProperties;
-import com.jiaxh.security.core.validate.code.ImageCode;
 import com.jiaxh.security.core.validate.code.ValidateCode;
 import com.jiaxh.security.core.validate.code.ValidateCodeException;
 import com.jiaxh.security.core.validate.code.ValidateCodeProcessor;
@@ -84,14 +82,14 @@ public class SmsCodeFilter extends OncePerRequestFilter implements InitializingB
             throw new ValidateCodeException("验证码不存在");
         }
         if(codeInSession.isExpired()){
-            sessionStrategy.removeAttribute(request,ValidateCodeController.SESSION_KEY);
+            sessionStrategy.removeAttribute(request,ValidateCodeProcessor.SESSION_KEY_PREFIX+"SMS");
             throw new ValidateCodeException("验证码已过期");
         }
         if(!StringUtils.equals(codeInSession.getCode(),codeInRequest)){
             throw new ValidateCodeException("验证码不正确");
         }
         //清除session中的验证码
-        sessionStrategy.removeAttribute(request,ValidateCodeController.SESSION_KEY);
+        sessionStrategy.removeAttribute(request,ValidateCodeProcessor.SESSION_KEY_PREFIX+"SMS");
     }
 
     public Set<String> getUrls() {

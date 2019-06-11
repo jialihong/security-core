@@ -76,7 +76,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
     }
 
     private void validate(ServletWebRequest request) throws ServletRequestBindingException {
-        ImageCode codeInSession = (ImageCode)sessionStrategy.getAttribute(request, ValidateCodeController.SESSION_KEY);
+        ImageCode codeInSession = (ImageCode)sessionStrategy.getAttribute(request, ValidateCodeProcessor.SESSION_KEY_PREFIX+"IMAGE");
         String codeInRequest = ServletRequestUtils.getStringParameter(request.getRequest(),"imageCode");
         if(StringUtils.isBlank(codeInRequest)){
             throw new ValidateCodeException("验证码的值不能为空");
@@ -85,14 +85,14 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
             throw new ValidateCodeException("验证码不存在");
         }
         if(codeInSession.isExpired()){
-            sessionStrategy.removeAttribute(request,ValidateCodeController.SESSION_KEY);
+            sessionStrategy.removeAttribute(request,ValidateCodeProcessor.SESSION_KEY_PREFIX+"IMAGE");
             throw new ValidateCodeException("验证码已过期");
         }
         if(!StringUtils.equals(codeInSession.getCode(),codeInRequest)){
             throw new ValidateCodeException("验证码不正确");
         }
         //清除session中的验证码
-        sessionStrategy.removeAttribute(request,ValidateCodeController.SESSION_KEY);
+        sessionStrategy.removeAttribute(request,ValidateCodeProcessor.SESSION_KEY_PREFIX+"IMAGE");
     }
 
     public Set<String> getUrls() {
