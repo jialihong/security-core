@@ -20,7 +20,7 @@ public class ValidateCodeBeanConfig {
     private SecurityProperties securityProperties;
 
     @Bean
-    //保证Spring容器中只初始化一个名称为imageCodeGenerator的bean
+    //确保Spring容器中只初始化一个名称为imageCodeGenerator的bean
     @ConditionalOnMissingBean(name= "imageCodeGenerator")
     public ValidateCodeGenerator imageCodeGenerator(){
         ImageCodeGenerator codeGenerator = new ImageCodeGenerator();

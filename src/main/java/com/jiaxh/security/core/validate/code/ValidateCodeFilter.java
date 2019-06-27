@@ -1,6 +1,5 @@
 package com.jiaxh.security.core.validate.code;
 
-import com.jiaxh.security.core.controller.ValidateCodeController;
 import com.jiaxh.security.core.properties.SecurityProperties;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.InitializingBean;
