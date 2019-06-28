@@ -1,7 +1,7 @@
 package com.jiaxh.security.core.controller;
 
-import com.jiaxh.security.core.properties.SecurityProperties;
 import com.jiaxh.security.core.validate.code.*;
+import com.jiaxh.security.core.validate.code.image.ImageCode;
 import com.jiaxh.security.core.validate.code.sms.SmsCodeSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.web.HttpSessionSessionStrategy;
@@ -15,10 +15,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.Random;
 
 @RestController
 public class ValidateCodeController {

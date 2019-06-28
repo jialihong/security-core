@@ -1,5 +1,7 @@
-package com.jiaxh.security.core.validate.code;
+package com.jiaxh.security.core.validate.code.image;
 
+
+import com.jiaxh.security.core.validate.code.ValidateCode;
 
 import java.awt.image.BufferedImage;
 import java.time.LocalDateTime;
@@ -7,7 +9,7 @@ import java.time.LocalDateTime;
 /**
  * 图片验证码
  */
-public class ImageCode extends ValidateCode{
+public class ImageCode extends ValidateCode {
     /**
      * 图片，根据code生成
      */
