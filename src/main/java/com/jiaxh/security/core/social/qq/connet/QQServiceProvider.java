@@ -3,7 +3,6 @@ package com.jiaxh.security.core.social.qq.connet;
 import com.jiaxh.security.core.social.qq.api.QQ;
 import com.jiaxh.security.core.social.qq.api.QQImpl;
 import org.springframework.social.oauth2.AbstractOAuth2ServiceProvider;
-import org.springframework.social.oauth2.OAuth2Operations;
 import org.springframework.social.oauth2.OAuth2Template;
 
 /**

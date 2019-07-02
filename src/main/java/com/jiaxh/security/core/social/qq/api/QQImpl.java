@@ -2,7 +2,6 @@ package com.jiaxh.security.core.social.qq.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
-import org.omg.CORBA.PRIVATE_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
 import org.springframework.social.oauth2.TokenStrategy;
@@ -10,6 +9,7 @@ import org.springframework.social.oauth2.TokenStrategy;
 import java.io.IOException;
 
 /**
+ * Api接口的实现类
  * QQImpl必须是一个多实例的类，否则会出现线程安全的问题。
  * @Auther: jiaxh
  * @Date: 2019/6/28 16:27

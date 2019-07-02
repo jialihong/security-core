@@ -17,6 +17,16 @@ public class SecurityProperties {
 
     private ValidateCodeProperties code = new ValidateCodeProperties();
 
+    private SocialProperties social = new SocialProperties();
+
+    public BrowserProperties getBrowser() {
+        return browser;
+    }
+
+    public void setBrowser(BrowserProperties browser) {
+        this.browser = browser;
+    }
+
     public ValidateCodeProperties getCode() {
         return code;
     }
@@ -25,11 +35,11 @@ public class SecurityProperties {
         this.code = code;
     }
 
-    public BrowserProperties getBrowser() {
-        return browser;
+    public SocialProperties getSocial() {
+        return social;
     }
 
-    public void setBrowser(BrowserProperties browser) {
-        this.browser = browser;
+    public void setSocial(SocialProperties social) {
+        this.social = social;
     }
 }
