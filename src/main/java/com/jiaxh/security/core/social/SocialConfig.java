@@ -1,5 +1,7 @@
 package com.jiaxh.security.core.social;
 
+import com.jiaxh.security.core.properties.SecurityProperties;
+import com.jiaxh.security.core.social.qq.JiaSpringSocialConfigurer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +26,9 @@ public class SocialConfig extends SocialConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
+    @Autowired
+    private SecurityProperties securityProperties;
+
     @Override
     public UsersConnectionRepository getUsersConnectionRepository(ConnectionFactoryLocator connectionFactoryLocator) {
         //使用JdbcUsersConnectionRepository操作数据库中UserConnection表
@@ -33,8 +38,14 @@ public class SocialConfig extends SocialConfigurerAdapter {
         return repository;
     }
 
+    /**
+     * 使用自定义的configurer
+     * @return
+     */
     @Bean
     public SpringSocialConfigurer jiaxhSocialSecurityConfig(){
-        return new SpringSocialConfigurer();
+        String filterProcessUrl = securityProperties.getSocial().getFilterProcessUrl();
+        JiaSpringSocialConfigurer configurer = new JiaSpringSocialConfigurer(filterProcessUrl);
+        return configurer;
     }
 }
