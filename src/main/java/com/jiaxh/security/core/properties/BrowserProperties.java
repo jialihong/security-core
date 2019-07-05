@@ -8,6 +8,8 @@ public class BrowserProperties {
     //默认值
     private String loginPage = "/jia-login.html";
 
+    private String signUpUrl = "/jia-signUp.html";
+
     private LoginType loginType = LoginType.JSON;
 
     /**
@@ -37,5 +39,13 @@ public class BrowserProperties {
 
     public void setLoginType(LoginType loginType) {
         this.loginType = loginType;
+    }
+
+    public String getSignUpUrl() {
+        return signUpUrl;
+    }
+
+    public void setSignUpUrl(String signUpUrl) {
+        this.signUpUrl = signUpUrl;
     }
 }
